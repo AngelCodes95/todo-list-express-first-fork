@@ -4,11 +4,12 @@ const MongoClient = require('mongodb').MongoClient
 const PORT = 2121
 require('dotenv').config()
 
-
+// initialize variables
 let db,
+    // assign values to variables to get the database string from the local env file to write to a database
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'todo'
-
+// connect to database and then assign the value of db name to the client's database's name
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
         console.log(`Connected to ${dbName} Database`)
